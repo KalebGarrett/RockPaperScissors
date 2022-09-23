@@ -1,4 +1,47 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿const playerText = document.querySelector("#playerText");
+const computerText = document.querySelector("#computerText");
+const resultText = document.querySelector("#resultText");
+const choiceButtons = document.querySelectorAll(".choice");
+let player;
+let computer;
+let result;
 
-// Write your JavaScript code.
+choiceButtons.forEach(button => button.addEventListener("click", () => {
+    
+    player = button.textContent;
+    computerTurn();
+    playerText.textContent = `Player: ${player}`;
+    computerText.textContent = `Computer: ${computer}`;
+    resultText.textContent = checkWinner();
+}));
+
+function computerTurn(){
+    const randomNum = Math.floor(Math.random() * 3) + 1;
+    
+    switch (randomNum){
+        case 1:
+            computer = "ROCK";
+            break;
+        case 2:
+            computer = "PAPER";
+            break;
+        case 3:
+            computer = "SCISSORS";
+            break;
+    }
+}
+
+function checkWinner(){
+    if(player == computer){
+        return "Draw!";
+    }
+    else if(computer == "ROCK"){
+        return (player == "PAPER") ? "You Win!" : "You Lose!"
+    }
+    else if(computer == "PAPER"){
+        return (player == "SCISSORS") ? "You Win!" : "You Lose!"
+    }
+    else if(computer == "SCISSORS"){
+        return (player == "ROCK") ? "You Win!" : "You Lose!"
+    }
+}
