@@ -6,7 +6,6 @@
     --yellow: #ecf545;
     --white: #FFFFFF;
     --gameText: Courier;
-    
 }
 
 .img {
@@ -28,7 +27,8 @@ body {
 #gameMain {
     font-family: var(--gameText);
     margin: auto;
-    width: 700px;
+    max-width: 700px;
+    width: 100%;
     border: 5px solid;
     box-sizing: border-box;
     border-radius: 5px;
